@@ -71,9 +71,9 @@ const path = './products.json';
 const productManager = new ProductManager(path);
 
 const newProduct = {
-  title: 'Camiseta',
-  description: 'Una camiseta de algodón',
-  price: 19.99,
+  title: 'Prensa 10 Tn',
+  description: 'Prensa de 10 toneladas',
+  price: 100,
   thumbnail: 'ruta/imagen.jpg',
   code: 'CAM001',
   stock: 10

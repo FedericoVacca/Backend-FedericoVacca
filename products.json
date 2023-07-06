@@ -1,9 +1,9 @@
 [
   {
     "id": 1,
-    "title": "Prensa 5 TN",
+    "title": "Camiseta Modificada",
     "description": "Una Prensa de 5 toneladas",
-    "price": 50,
+    "price": 24.99,
     "thumbnail": "ruta/imagen.jpg",
     "code": "CAM001",
     "stock": 10
@@ -16,7 +16,8 @@
     "thumbnail": "ruta/imagen.jpg",
     "code": "CAM002",
     "stock": 10
-  },{
+  },
+  {
     "id": 3,
     "title": "Prensa 15 TN",
     "description": "Una Prensa de 15 toneladas",
@@ -24,7 +25,8 @@
     "thumbnail": "ruta/imagen.jpg",
     "code": "CAM003",
     "stock": 10
-  },{
+  },
+  {
     "id": 4,
     "title": "Prensa 20 TN",
     "description": "Una Prensa de 20 toneladas",
@@ -32,7 +34,8 @@
     "thumbnail": "ruta/imagen.jpg",
     "code": "CAM004",
     "stock": 10
-  },{
+  },
+  {
     "id": 5,
     "title": "Remera Merch",
     "description": "Remera Pisando fuerte",
@@ -40,5 +43,46 @@
     "thumbnail": "ruta/imagen.jpg",
     "code": "CAM005",
     "stock": 10
-  }  
+  },
+  {
+    "id": 6,
+    "title": "Gorra",
+    "description": "Gorra trucker",
+    "price": 19.99,
+    "thumbnail": "ruta/imagen.jpg",
+    "code": "CAM001",
+    "stock": 10
+  },{
+    "id": 7,
+    "title": "Llavero Pisando Fuerte",
+    "description": "Llavero metalico",
+    "price": 19.99,
+    "thumbnail": "ruta/imagen.jpg",
+    "code": "CAM001",
+    "stock": 10
+  },{
+    "id": 8,
+    "title": "Packs Stickers",
+    "description": "Sticker pisando fuerte",
+    "price": 19.99,
+    "thumbnail": "ruta/imagen.jpg",
+    "code": "CAM001",
+    "stock": 10
+  },{
+    "id": 9,
+    "title": "Hoodie Pisando Fuerte",
+    "description": "Hoodie de algodón",
+    "price": 19.99,
+    "thumbnail": "ruta/imagen.jpg",
+    "code": "CAM001",
+    "stock": 10
+  },{
+    "id": 10,
+    "title": "Medias Pisando Fuerte",
+    "description": "Medias de algodón",
+    "price": 19.99,
+    "thumbnail": "ruta/imagen.jpg",
+    "code": "CAM001",
+    "stock": 10
+  }
 ]
