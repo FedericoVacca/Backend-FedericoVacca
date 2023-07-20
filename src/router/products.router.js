@@ -1,6 +1,7 @@
 import express from "express";
 import { Router } from "express";
 import ProductManager from "../models/ProductManager.js";
+import { io } from "../../app.js";
 const router = Router();
 const productosManagerV1 = new ProductManager("./productos.json");
 
@@ -17,7 +18,7 @@ router.get("/", async (req, res) => {
     }
 
     res.send({
-      status: "200 Permitir Ingreso",
+      status: "200 ok",
       message: products,
     });
   } catch (err) {
@@ -31,7 +32,7 @@ router.get("/:pid", async (req, res) => {
     const producto = await productosManagerV1.getProductById(pid);
 
     res.send({
-      status: "200 Permitir Ingreso",
+      status: "200 ok",
       message: producto ? producto : "no existe producto seleccionado",
     });
   } catch (err) {
@@ -43,21 +44,24 @@ router.post("/", async (req, res) => {
   const { title, description, price, code, stock, category, thumbnail } =
     req.body;
   if (!title || !description || !code || !price || !stock || !category) {
-    return res.status(401).json({ message: "Falta Informacion" });
+    return res.status(401).json({ message: "faltan datos" });
   }
   if (!thumbnail) {
     req.body.thumbnail = "";
   }
   try {
-   await productosManagerV1.addProduct(req.body);
-   
+    await productosManagerV1.addProduct(req.body);
     res.json({
-      status: "200 Permitir Ingreso",
-      message: "El producto se ha actualizado correctamente ",
+      status: "200 ok",
+      message: "El producto se ha actualizado ok ",
     });
+    const products = await productosManagerV1.getProducts();
+    io.emit("message", {products });  
   } catch (err) {
     res.status(err.statusCode).send(` ${err}`);
   }
+
+  
 });
 router.delete("/:pid", async (req, res) => {
   const id = Number(req.params.pid);
@@ -65,8 +69,8 @@ router.delete("/:pid", async (req, res) => {
     const producto = await productosManagerV1.deleteProduct(id);
 
     res.send({
-      status: "200 Permitir Ingreso",
-      message: producto ? producto : "No existe producto seleccionado",
+      status: "200 ok",
+      message: producto ? producto : "no existe producto seleccionado",
     });
   } catch (err) {
     res.status(err.statusCode).send(` ${err}`);
@@ -84,13 +88,13 @@ router.put("/:pid", async (req, res) => {
     const result = await productosManagerV1.updateProductById(
       id,
       productToModify
-    );   
-    
+    );
+
     const mensaje = result
-      ? "El producto ha sido actualizado correctamente"
+      ? "El producto ha sido actualizado"
       : "No se ha encontrado producto";
 
-    res.json({ status: "200 Permitir Ingreso", mensaje: mensaje });
+    res.json({ status: "200 ok", mensaje: mensaje });
   } catch (err) {
     res.status(err.statusCode).send(` ${err}`);
   }
